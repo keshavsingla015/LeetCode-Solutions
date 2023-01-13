@@ -1,0 +1,51 @@
+Given a string s, find the length of the longest 
+substring
+ without repeating characters.
+ 
+ 
+ ///////////////////////////////////////////////////////
+ 
+ https://leetcode.com/problems/longest-substring-without-repeating-characters/solutions/3011578/easy-implementation-of-sliding-window-o-n-time-complexity/
+ 
+ https://leetcode.com/problems/longest-substring-without-repeating-characters/solutions/2804868/short-c-expained-solution-11-line-code/
+ 
+ ///////////////////////////////////////////
+ 
+ class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        unordered_map<char , int> map;
+
+        int maxi = 0 ; 
+
+        for(int i = 0 ; i < s.size() ; i++){
+           // if character not present 
+            if(map.find(s[i])){
+                map(s[i]) = i ;
+            }
+
+            if(map([s[i]){
+                maxi = max(maxi , i - map(s[i]));
+            }
+        }
+        return maxi ; 
+    }
+};
+
+
+    int lengthOfLongestSubstring(string s) {
+
+        int length=0 , maxlength=0,j=0;
+        map<char ,int> mp;
+
+        for(int i=0 ;i<s.size(); i++){
+            mp[s[i]]++;
+            length++;
+                while(mp[s[i]]>1){
+                    mp[s[j++]]--;
+                    length--;
+                }
+            maxlength = max(maxlength,length);
+        }
+        return maxlength;
+    }
