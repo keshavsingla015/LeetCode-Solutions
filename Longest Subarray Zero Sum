@@ -1,0 +1,41 @@
+https://www.codingninjas.com/codestudio/problems/920321?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
+
+#include <bits/stdc++.h>  #include <bits/stdc++.h>  int LongestSubsetWithZeroSum(vector < int > arr) {
+
+ // Write your code here    unordered_map<int, int>mp;    int ans=0, sum=0;    for(int i=0; i<arr.size(); i++){        sum+=arr[i];        if(sum==0){            ans=max(ans, i+1);        }                if(mp.find(sum)!=mp.end()){            ans=max(ans, i-mp[sum]);        }        else{            mp[sum]=i;        }    }    return ans; }
+//////////////////////////////////////////////
+CODESTUDIO - CODINGNINJAS
+
+#include <bits/stdc++.h> 
+#include <bits/stdc++.h> 
+int getSum(vector<int> nums){
+    int sum = 0 ; 
+    for(int i = 0 ; i< nums.size() ; i++){
+        sum += nums[i];
+    }
+    return sum ; 
+}
+
+int LongestSubsetWithZeroSum(vector < int > nums) {
+    
+    if(nums.size() == 1 && nums[0] == 0){
+        return 1 ; 
+    }
+        int count = 0 ; 
+        vector<int> ans; 
+        int tgt ;
+    
+        for(int i = 0 ; i < nums.size() ; i++){
+                ans.push_back(nums[i]);
+            for(int j = i +1 ; j < nums.size() ; j++){
+                    ans.push_back(nums[j]);
+                    tgt = getSum(ans);
+                    if(tgt == 0){
+                         if(count < ans.size()){
+                             count = ans.size() ; 
+                             }
+                        }
+                  }
+            }
+            return count ; 
+        }
