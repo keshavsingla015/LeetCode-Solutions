@@ -1,24 +1,14 @@
-
-
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
- * };
- */
 class Solution {
 public:
     bool hasCycle(ListNode *head) {
-        unordered_map <int, bool> map ; 
+        unordered_map <ListNode * , bool> map ; 
 
         ListNode * temp = head ; 
         while(temp!=NULL && temp->next != NULL){
-            if(map[temp->val]){
+            if(map[temp]){
                 return true ;
             }
-            map[temp->val] = true ;
+            map[temp] = true ;
             temp = temp-> next ; 
         }
         return false ; 
@@ -26,13 +16,16 @@ public:
 };
 
 
-//utility function to detect cycle
-bool cycleDetect(node* head) {
-    unordered_set<node*> hashTable;
-    while(head != NULL) {
-        if(hashTable.find(head) != hashTable.end()) return true;
-        hashTable.insert(head);
-        head = head->next;
+class Solution {
+public:
+    bool hasCycle(ListNode *head) {
+        ListNode *p=head;
+        ListNode *q=head;
+        while(p && p->next){
+            p=p->next->next;
+            q=q->next;
+            if(p == q) return 1;
+        }
+        return 0;
     }
-    return false;
-}
+};
