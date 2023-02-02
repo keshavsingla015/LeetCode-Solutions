@@ -1,0 +1,132 @@
+#include <climits>
+class StackUsingArray {
+//Privately declared
+int *data;
+int nextIndex;
+int capacity;
+public :
+StackUsingArray(int totalSize) {
+data = new int[totalSize];
+nextIndex = 0;
+// Dynamic array created serving as stack
+// To keep the track of current top index
+// To keep the track of total size of stack
+//Constructor to initialise the values
+capacity = totalSize;
+}
+
+
+// return the number of elements present in my stack
+int size() {
+return nextIndex;
+}
+
+
+bool isEmpty() {
+/*
+if(nextIndex == 0) {
+return true;
+}
+else {
+}
+*/
+return false;
+return nextIndex == 0; //Above program written in short-hand
+}
+
+
+
+// insert element
+
+void push(int element) {
+if(nextIndex == capacity) {
+cout << "Stack full " << endl;
+return;
+}
+data[nextIndex] = element;
+nextIndex++; //Size incremented
+}
+
+
+
+// delete element
+int pop() {
+//Before deletion we checked if it was initially not empty to prevent underflow
+if(isEmpty()) {
+cout << "Stack is empty " << endl;
+return INT_MIN;
+}
+nextIndex--; //Conditioned satisfied so deleted
+return data[nextIndex];
+}
+
+
+
+//to return the top element of the stack
+int top() {
+if(isEmpty()) { // checked for empty stack to prevent overflow
+cout << "Stack is empty " << endl;
+return INT_MIN;
+}
+return data[nextIndex - 1]
+
+
+==============================================================================================================================================
+
+#include <bits/stdc++.h> 
+// Stack class.
+class Stack {
+      int *arr ;
+      int top1 , size;
+    
+public:
+    
+    Stack(int capacity) {
+        this->size = capacity;
+        arr = new int[capacity];
+        top1=-1;
+    }
+
+    void push(int num) {
+        // Write your code here.
+        if(size-top1>1){
+            top1++;
+        arr[top1]=num;
+        }
+    }
+
+    int pop() {
+        if(top1>=0){
+        int ans = arr[top1];
+         top1--;
+         return ans;
+        }else{
+            return -1;
+        }
+    }
+    
+    int top() {
+       if(top1>=0){
+        return arr[top1];
+       } else{
+           return -1;
+       }
+    }
+    
+    int isEmpty() {
+        if(top1==-1){
+            return 1;
+        }else{ 
+            return 0;
+        }
+    }
+    
+    int isFull() {
+       if(top1==size){
+           return 1;
+       }else{
+           return 0;
+       }
+    }
+    
+};
