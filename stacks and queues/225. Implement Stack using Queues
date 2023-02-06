@@ -1,0 +1,61 @@
+
+
+class MyStack {
+public:
+    int size ; 
+    int * array ;
+    int front ; 
+    int rear ;
+    MyStack() {
+        size = 1001 ; 
+        array = new int[size];
+        front = 0 ; 
+        rear = 0 ; 
+    }
+
+    bool empty() {
+        if(front == 0 && rear == 0){
+            return true ; 
+        }
+        if(front == rear)return true ; 
+        if(front == rear-1)return true;  
+        return false ; 
+    }    
+
+    void push(int x) {
+        if(empty()){
+            array[front] = x ; 
+            rear++ ; 
+        }
+        array[rear] = x ; 
+        rear++ ; 
+    }
+    
+    int pop() {
+        if(empty()){
+            return -1  ;
+        }
+        int ans = array[rear-1] ; 
+        rear-- ; 
+        return ans ; 
+    }
+    
+    int top() {
+        if(empty()){
+            return -1  ;
+        }
+        int ans = array[rear-1] ; 
+        return ans ; 
+    }
+    
+
+};
+
+/**
+ * Your MyStack object will be instantiated and called as such:
+ * MyStack* obj = new MyStack();
+ * obj->push(x);
+ * int param_2 = obj->pop();
+ * int param_3 = obj->top();
+ * bool param_4 = obj->empty();
+ */
