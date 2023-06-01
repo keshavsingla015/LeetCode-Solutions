@@ -18,7 +18,11 @@ class Solution{
             }
         }
         return res ; 
-        
+        //if we want to use binary search 
+        // first find the first element of the array now divide the array into two parts
+        // 1. array 2. rotated array 
+        // apply binary search on both individually and return index 
+        // if not present return -1 ; 
     }
 };
 
