@@ -31,8 +31,9 @@ class Solution {
       // Code here+
       if(bloomDay.size() < M*K) return -1 ; 
       
-      int low = 0 , high = INT_MAX -1; 
+      int low = 0 , high = *max_element(bloomDay.begin() , bloomDay.end()) ; 
       int res = -1 ;
+      
       while(low <= high){
           int mid = (low+high)/2 ; 
           
