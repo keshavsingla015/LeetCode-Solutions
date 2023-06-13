@@ -99,22 +99,17 @@ struct Node
 class Solution{
     public:
     //Function to find the height of a binary tree.
-    int helper(struct Node * root){
-        if(root == NULL) return 0 ;
+    // int helper(struct Node * root){
         
-        int right = helper(root-> right) + 1 ;
-        int left = helper(root->left) + 1;
-        
-        return max(right , left);
-    }
+    // }
     
     int height(struct Node* root){
-        // code here 
-        // if(root==NULL)return 0 ;
-        // if(root->left ==NULL && root->right == NULL) return 1 ; 
+        if(root == NULL) return 0 ;
         
-        int h = helper(root) ; 
-        return  h ;
+        int right = height(root-> right) + 1 ;
+        int left = height(root->left) + 1;
+        
+        return max(right , left) ;
         
     }
 };
