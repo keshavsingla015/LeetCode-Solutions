@@ -10,10 +10,10 @@ class Solution {
         // base conditions 
         // if(index == 0){
         //     if(coins[index] <= sum){
-        //         if(sum%coins[index] == 0) return 1;
+        //         return sum%coins[index] == 0;
         //         return 0 ; 
         //     }
-        //     return 0 ; 
+        //     // return 0 ; 
         // }
         if(index == 0){
             return (sum%coins[0]==0);
